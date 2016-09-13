@@ -35,8 +35,7 @@ import math
 
 def divro(num, den):
     # Divide always rounding up and returning an integer
-    # Is there some nicer way to do this?
-    return int(math.ceil((1.0*num)/(1.0*den)))
+    return (num+den-1)/den
 
 def vhd_checksum(string):
     # This is the checksum defined in the MS spec
@@ -80,10 +79,7 @@ def vhd_chs(size):
     return (cylinders, heads, spt)
 
 def zerostring(len):
-    zs = ""
-    for i in range(1, len):
-        zs += '\0'
-    return zs
+    return "\0"*len
 
 # Header/Footer - From MS doco
 # 512 bytes - early versions had a 511 byte footer for no obvious reason
